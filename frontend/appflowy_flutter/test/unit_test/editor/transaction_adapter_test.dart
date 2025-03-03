@@ -226,7 +226,7 @@ void main() {
     test('use delta from prev attributes if current delta is null', () async {
       final node = todoListNode(
         checked: false,
-        delta: Delta()..insert('AppFlowy'),
+        delta: Delta()..insert('GNY'),
       );
       final document = Document(
         root: pageNode(
