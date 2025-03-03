@@ -173,7 +173,7 @@ jobs:
         run: |
           flutter config --enable-macos-desktop
           flutter pub global activate flutter_distributor
-          sh scripts/flutter_release_build/build_macos.sh --build_type dmg --build_arch x86_64 --version ${{ github.ref_name }} --apple-id ${{ secrets.MACOS_NOTARY_USER }} --team-id ${{ secrets.MACOS_TEAM_ID }} --password ${{ secrets.MACOS_NOTARY_PWD }}
+          sh scripts/flutter_release_build/build_macos.sh --build_type dmg --build_arch x86_64 --version ${{ github.ref_name }}
 
       - name: Upload Asset
         uses: actions/upload-release-asset@v1
@@ -247,7 +247,7 @@ jobs:
         run: |
           flutter config --enable-macos-desktop
           dart pub global activate flutter_distributor
-          sh scripts/flutter_release_build/build_macos.sh --build_type dmg --build_arch arm64 --version ${{ github.ref_name }} --apple-id ${{ secrets.MACOS_NOTARY_USER }} --team-id ${{ secrets.MACOS_TEAM_ID }} --password ${{ secrets.MACOS_NOTARY_PWD }}
+          sh scripts/flutter_release_build/build_macos.sh --build_type dmg --build_arch arm64 --version ${{ github.ref_name }}
 
       - name: Upload Asset
         uses: actions/upload-release-asset@v1
@@ -321,8 +321,7 @@ jobs:
         run: |
           flutter config --enable-macos-desktop
           dart pub global activate flutter_distributor
-          sh scripts/flutter_release_build/build_macos.sh --build_type dmg --build_arch universal --version ${{ github.ref_name }} --apple-id ${{ secrets.MACOS_NOTARY_USER }} --team-id ${{ secrets.MACOS_TEAM_ID }} --password ${{ secrets.MACOS_NOTARY_PWD }}
-
+          sh scripts/flutter_release_build/build_macos.sh --build_type dmg --build_arch universal --version ${{ github.ref_name }} 
       - name: Upload Asset
         uses: actions/upload-release-asset@v1
         env:
