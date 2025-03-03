@@ -9,8 +9,8 @@ contents:
   - x: 141
     y: 249
     type: "file"
-    path: "AppFlowy.app"
-    name: "AppFlowy.app"
+    path: "Incuboot.app"
+    name: "Incuboot.app"
   - x: 458
     y: 249
     type: "link"

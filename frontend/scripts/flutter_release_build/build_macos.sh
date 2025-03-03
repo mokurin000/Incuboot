@@ -1,4 +1,4 @@
-# This Script is used to build the AppFlowy macOS zip, dmg or pkg
+# This Script is used to build the Incuboot macOS zip, dmg or pkg
 #
 # Usage: ./scripts/flutter_release_build/build_macos.sh --build_type <type> --build_arch <arch> --version <version> --apple-id <apple-id> --team-id <team-id> --password <password> [--skip-code-generation] [--skip-rebuild-core]
 #
@@ -181,23 +181,23 @@ build_zip() {
     info "Building zip package version $VERSION..."
 
     # step 1: check if the macos zip package is built, if not, build the zip package
-    if [ ! -f "appflowy_flutter/build/$VERSION/AppFlowy-$VERSION-macos-$BUILD_ARCH.zip" ]; then
+    if [ ! -f "appflowy_flutter/build/$VERSION/Incuboot-$VERSION-macos-$BUILD_ARCH.zip" ]; then
         info "macOS zip package is not built. Building the zip package..."
         prepare_build
 
         # step 1.1: move the zip package to the build directory
-        mv appflowy_flutter/build/$VERSION/appflowy-$VERSION+$VERSION-macos.zip appflowy_flutter/build/$VERSION/AppFlowy-$VERSION-macos-$BUILD_ARCH.zip
+        mv appflowy_flutter/build/$VERSION/appflowy-$VERSION+$VERSION-macos.zip appflowy_flutter/build/$VERSION/Incuboot-$VERSION-macos-$BUILD_ARCH.zip
     fi
 
     # step 2: unzip the zip package and codesign the app
-    unzip -o appflowy_flutter/build/$VERSION/AppFlowy-$VERSION-macos-$BUILD_ARCH.zip
+    unzip -o appflowy_flutter/build/$VERSION/Incuboot-$VERSION-macos-$BUILD_ARCH.zip
 
     # step 3: codesign the app
     # note: You must install the certificate to the system before codesigning
-    sudo /usr/bin/codesign --force --options runtime --deep --sign "Developer ID Application: APPFLOWY PTE. LTD" --deep --verbose AppFlowy.app -v
+    sudo /usr/bin/codesign --force --options runtime --deep --sign "Developer ID Application: APPFLOWY PTE. LTD" --deep --verbose Incuboot.app -v
 
     # step 4: zip the app again
-    7z a appflowy_flutter/build/$VERSION/AppFlowy-$VERSION-macos-$BUILD_ARCH.zip AppFlowy.app
+    7z a appflowy_flutter/build/$VERSION/Incuboot-$VERSION-macos-$BUILD_ARCH.zip Incuboot.app
 
     info "Zip package built successfully"
 }
@@ -206,18 +206,18 @@ build_dmg() {
     info "Building DMG package version $VERSION..."
 
     # step 1: check if the macos zip package is built, if not, build the zip package
-    if [ ! -f "appflowy_flutter/build/$VERSION/AppFlowy-$VERSION-macos-$BUILD_ARCH.zip" ]; then
+    if [ ! -f "appflowy_flutter/build/$VERSION/Incuboot-$VERSION-macos-$BUILD_ARCH.zip" ]; then
         info "macOS zip package is not built. Building the zip package..."
         build_zip
     fi
 
     # step 2: unzip the zip package and copy the make_config.json file to the build directory
-    unzip appflowy_flutter/build/$VERSION/AppFlowy-$VERSION-macos-$BUILD_ARCH.zip -d appflowy_flutter/build/$VERSION/
+    unzip appflowy_flutter/build/$VERSION/Incuboot-$VERSION-macos-$BUILD_ARCH.zip -d appflowy_flutter/build/$VERSION/
     cp appflowy_flutter/macos/packaging/dmg/make_config.json appflowy_flutter/build/$VERSION/
 
-    # check if the AppFlowy.app doesn't exist, exit the script
-    if [ ! -d "appflowy_flutter/build/$VERSION/AppFlowy.app" ]; then
-        error "AppFlowy.app doesn't exist. Please check the zip package."
+    # check if the Incuboot.app doesn't exist, exit the script
+    if [ ! -d "appflowy_flutter/build/$VERSION/Incuboot.app" ]; then
+        error "Incuboot.app doesn't exist. Please check the zip package."
         exit 1
     fi
 
@@ -229,25 +229,25 @@ build_dmg() {
 
     # step 3: build the dmg package using appdmg
     # note: You must install the appdmg to the system before building the dmg package
-    appdmg appflowy_flutter/build/$VERSION/make_config.json appflowy_flutter/build/$VERSION/AppFlowy-$VERSION-macos-$BUILD_ARCH.dmg
+    appdmg appflowy_flutter/build/$VERSION/make_config.json appflowy_flutter/build/$VERSION/Incuboot-$VERSION-macos-$BUILD_ARCH.dmg
 
     # step 4: clear the temp files
-    rm -rf appflowy_flutter/build/$VERSION/AppFlowy.app
+    rm -rf appflowy_flutter/build/$VERSION/Incuboot.app
     rm -rf appflowy_flutter/build/$VERSION/make_config.json
 
     # check if the dmg package is built
-    if [ ! -f "appflowy_flutter/build/$VERSION/AppFlowy-$VERSION-macos-$BUILD_ARCH.dmg" ]; then
+    if [ ! -f "appflowy_flutter/build/$VERSION/Incuboot-$VERSION-macos-$BUILD_ARCH.dmg" ]; then
         error "DMG package is not built. Please check the build process."
         exit 1
     fi
 
-    info "DMG package built successfully. The dmg package is located at appflowy_flutter/build/$VERSION/AppFlowy-$VERSION-macos-$BUILD_ARCH.dmg"
+    info "DMG package built successfully. The dmg package is located at appflowy_flutter/build/$VERSION/Incuboot-$VERSION-macos-$BUILD_ARCH.dmg"
 
     if [ -z "$APPLE_ID" ] || [ -z "$TEAM_ID" ] || [ -z "$PASSWORD" ]; then
         error "The apple id, team id and password are not specified. Please notarize the dmg package manually."
-        error "xcrun notarytool submit appflowy_flutter/build/$VERSION/AppFlowy-$VERSION-macos-$BUILD_ARCH.dmg --apple-id <your-apple-id> --team-id <your-team-id> --password <your-password> -v -f \"json\" --wait"
+        error "xcrun notarytool submit appflowy_flutter/build/$VERSION/Incuboot-$VERSION-macos-$BUILD_ARCH.dmg --apple-id <your-apple-id> --team-id <your-team-id> --password <your-password> -v -f \"json\" --wait"
     else
-        xcrun notarytool submit appflowy_flutter/build/$VERSION/AppFlowy-$VERSION-macos-$BUILD_ARCH.dmg --apple-id $APPLE_ID --team-id $TEAM_ID --password $PASSWORD -v -f "json" --wait
+        xcrun notarytool submit appflowy_flutter/build/$VERSION/Incuboot-$VERSION-macos-$BUILD_ARCH.dmg --apple-id $APPLE_ID --team-id $TEAM_ID --password $PASSWORD -v -f "json" --wait
         info "Notarization is completed. Please check the notarization status"
     fi
 }
@@ -256,24 +256,24 @@ build_tar_xz() {
     info "Building tar.xz package version $VERSION..."
 
     # step 1: check if the macos zip package is built, if not, build the zip package
-    if [ ! -f "appflowy_flutter/build/$VERSION/AppFlowy-$VERSION-macos-$BUILD_ARCH.zip" ]; then
+    if [ ! -f "appflowy_flutter/build/$VERSION/Incuboot-$VERSION-macos-$BUILD_ARCH.zip" ]; then
         info "macOS zip package is not built. Building the zip package..."
         build_zip
     fi
 
     # step 2: unzip the zip package and copy the make_config.json file to the build directory
-    unzip appflowy_flutter/build/$VERSION/AppFlowy-$VERSION-macos-$BUILD_ARCH.zip -d appflowy_flutter/build/$VERSION/
+    unzip appflowy_flutter/build/$VERSION/Incuboot-$VERSION-macos-$BUILD_ARCH.zip -d appflowy_flutter/build/$VERSION/
 
-    # check if the AppFlowy.app doesn't exist, exit the script
-    if [ ! -d "appflowy_flutter/build/$VERSION/AppFlowy.app" ]; then
-        error "AppFlowy.app doesn't exist. Please check the zip package."
+    # check if the Incuboot.app doesn't exist, exit the script
+    if [ ! -d "appflowy_flutter/build/$VERSION/Incuboot.app" ]; then
+        error "Incuboot.app doesn't exist. Please check the zip package."
         exit 1
     fi
 
     # step 3: build the tar.xz package
-    tar -cJvf appflowy_flutter/build/$VERSION/AppFlowy-$VERSION-macos-$BUILD_ARCH.tar.xz appflowy_flutter/build/$VERSION/AppFlowy.app
+    tar -cJvf appflowy_flutter/build/$VERSION/Incuboot-$VERSION-macos-$BUILD_ARCH.tar.xz appflowy_flutter/build/$VERSION/Incuboot.app
 
-    info "Tar.xz package built successfully. The tar.xz package is located at appflowy_flutter/build/$VERSION/AppFlowy-$VERSION-macos-$BUILD_ARCH.tar.xz"
+    info "Tar.xz package built successfully. The tar.xz package is located at appflowy_flutter/build/$VERSION/Incuboot-$VERSION-macos-$BUILD_ARCH.tar.xz"
 }
 
 clear_cache
