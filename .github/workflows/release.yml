@@ -162,11 +162,11 @@ jobs:
           cargo install --force --locked cargo-make
           cargo install --force --locked duckscript_cli
 
-      - name: Import codesign certificate
-        uses: apple-actions/import-codesign-certs@v3
-        with:
-          p12-file-base64: ${{ secrets.MACOS_CERTIFICATE }}
-          p12-password: ${{ secrets.MACOS_CERTIFICATE_PWD }}
+      # - name: Import codesign certificate
+      #   uses: apple-actions/import-codesign-certs@v3
+      #   with:
+      #     p12-file-base64: ${{ secrets.MACOS_CERTIFICATE }}
+      #     p12-password: ${{ secrets.MACOS_CERTIFICATE_PWD }}
 
       - name: Build AppFlowy
         working-directory: frontend
@@ -236,11 +236,11 @@ jobs:
           cargo install --force --locked cargo-make
           cargo install --force --locked duckscript_cli
 
-      - name: Import codesign certificate
-        uses: apple-actions/import-codesign-certs@v3
-        with:
-          p12-file-base64: ${{ secrets.MACOS_CERTIFICATE }}
-          p12-password: ${{ secrets.MACOS_CERTIFICATE_PWD }}
+      # - name: Import codesign certificate
+      #   uses: apple-actions/import-codesign-certs@v3
+      #   with:
+      #     p12-file-base64: ${{ secrets.MACOS_CERTIFICATE }}
+      #     p12-password: ${{ secrets.MACOS_CERTIFICATE_PWD }}
 
       - name: Build AppFlowy
         working-directory: frontend
@@ -310,11 +310,11 @@ jobs:
           cargo install --force --locked cargo-make
           cargo install --force --locked duckscript_cli
 
-      - name: Import codesign certificate
-        uses: apple-actions/import-codesign-certs@v3
-        with:
-          p12-file-base64: ${{ secrets.MACOS_CERTIFICATE }}
-          p12-password: ${{ secrets.MACOS_CERTIFICATE_PWD }}
+      # - name: Import codesign certificate
+      #   uses: apple-actions/import-codesign-certs@v3
+      #   with:
+      #     p12-file-base64: ${{ secrets.MACOS_CERTIFICATE }}
+      #     p12-password: ${{ secrets.MACOS_CERTIFICATE_PWD }}
 
       - name: Build AppFlowy
         working-directory: frontend
