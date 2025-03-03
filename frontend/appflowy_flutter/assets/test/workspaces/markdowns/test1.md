@@ -1,4 +1,4 @@
-# Welcome to AppFlowy!
+# Welcome to Incuboot!
 
 ## Here are the basics
 
