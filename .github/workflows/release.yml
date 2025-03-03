@@ -123,148 +123,149 @@ jobs:
           asset_name: ${{ env.WINDOWS_INSTALLER_NAME }}.exe
           asset_content_type: application/octet-stream
 
-  build-for-macOS-x86_64:
-    name: ${{ matrix.job.target }} (${{ matrix.job.os }}) [${{ matrix.job.extra-build-args }}]
-    runs-on: ${{ matrix.job.os }}
-    needs: create-release
-    env:
-      MACOS_APP_RELEASE_PATH: frontend/appflowy_flutter/build/${{ github.ref_name }}
-      MACOS_X86_ZIP_NAME: Incuboot-${{ github.ref_name }}-macos-x86_64.zip
-      MACOS_DMG_NAME: Incuboot-${{ github.ref_name }}-macos-x86_64.dmg
-    strategy:
-      fail-fast: false
-      matrix:
-        job:
-          - { target: x86_64-apple-darwin, os: macos-13, extra-build-args: "" }
-    steps:
-      - name: Checkout source code
-        uses: actions/checkout@v4
+# disable MacOS CI for now, to expensive
+  # build-for-macOS-x86_64:
+  #   name: ${{ matrix.job.target }} (${{ matrix.job.os }}) [${{ matrix.job.extra-build-args }}]
+  #   runs-on: ${{ matrix.job.os }}
+  #   needs: create-release
+  #   env:
+  #     MACOS_APP_RELEASE_PATH: frontend/appflowy_flutter/build/${{ github.ref_name }}
+  #     MACOS_X86_ZIP_NAME: Incuboot-${{ github.ref_name }}-macos-x86_64.zip
+  #     MACOS_DMG_NAME: Incuboot-${{ github.ref_name }}-macos-x86_64.dmg
+  #   strategy:
+  #     fail-fast: false
+  #     matrix:
+  #       job:
+  #         - { target: x86_64-apple-darwin, os: macos-13, extra-build-args: "" }
+  #   steps:
+  #     - name: Checkout source code
+  #       uses: actions/checkout@v4
 
-      - name: Install flutter
-        uses: subosito/flutter-action@v2
-        with:
-          channel: "stable"
-          flutter-version: ${{ env.FLUTTER_VERSION }}
+  #     - name: Install flutter
+  #       uses: subosito/flutter-action@v2
+  #       with:
+  #         channel: "stable"
+  #         flutter-version: ${{ env.FLUTTER_VERSION }}
 
-      - name: Install Rust toolchain
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: ${{ env.RUST_TOOLCHAIN }}
-          target: ${{ matrix.job.target }}
-          override: true
-          components: rustfmt
-          profile: minimal
+  #     - name: Install Rust toolchain
+  #       uses: actions-rs/toolchain@v1
+  #       with:
+  #         toolchain: ${{ env.RUST_TOOLCHAIN }}
+  #         target: ${{ matrix.job.target }}
+  #         override: true
+  #         components: rustfmt
+  #         profile: minimal
 
-      - name: Install prerequisites
-        working-directory: frontend
-        run: |
-          brew install p7zip
-          cargo install --force --locked cargo-make
-          cargo install --force --locked duckscript_cli
+  #     - name: Install prerequisites
+  #       working-directory: frontend
+  #       run: |
+  #         brew install p7zip
+  #         cargo install --force --locked cargo-make
+  #         cargo install --force --locked duckscript_cli
 
-      # - name: Import codesign certificate
-      #   uses: apple-actions/import-codesign-certs@v3
-      #   with:
-      #     p12-file-base64: ${{ secrets.MACOS_CERTIFICATE }}
-      #     p12-password: ${{ secrets.MACOS_CERTIFICATE_PWD }}
+  #     # - name: Import codesign certificate
+  #     #   uses: apple-actions/import-codesign-certs@v3
+  #     #   with:
+  #     #     p12-file-base64: ${{ secrets.MACOS_CERTIFICATE }}
+  #     #     p12-password: ${{ secrets.MACOS_CERTIFICATE_PWD }}
 
-      - name: Build AppFlowy
-        working-directory: frontend
-        run: |
-          flutter config --enable-macos-desktop
-          flutter pub global activate flutter_distributor
-          sh scripts/flutter_release_build/build_macos.sh --build_type dmg --build_arch x86_64 --version ${{ github.ref_name }}
+  #     - name: Build AppFlowy
+  #       working-directory: frontend
+  #       run: |
+  #         flutter config --enable-macos-desktop
+  #         flutter pub global activate flutter_distributor
+  #         sh scripts/flutter_release_build/build_macos.sh --build_type dmg --build_arch x86_64 --version ${{ github.ref_name }}
 
-      - name: Upload Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ needs.create-release.outputs.upload_url }}
-          asset_path: ${{ env.MACOS_APP_RELEASE_PATH }}/${{ env.MACOS_X86_ZIP_NAME }}
-          asset_name: ${{ env.MACOS_X86_ZIP_NAME }}
-          asset_content_type: application/octet-stream
+  #     - name: Upload Asset
+  #       uses: actions/upload-release-asset@v1
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #       with:
+  #         upload_url: ${{ needs.create-release.outputs.upload_url }}
+  #         asset_path: ${{ env.MACOS_APP_RELEASE_PATH }}/${{ env.MACOS_X86_ZIP_NAME }}
+  #         asset_name: ${{ env.MACOS_X86_ZIP_NAME }}
+  #         asset_content_type: application/octet-stream
 
-      - name: Upload DMG Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ needs.create-release.outputs.upload_url }}
-          asset_path: ${{ env.MACOS_APP_RELEASE_PATH }}/${{ env.MACOS_DMG_NAME }}
-          asset_name: ${{ env.MACOS_DMG_NAME }}
-          asset_content_type: application/octet-stream
+  #     - name: Upload DMG Asset
+  #       uses: actions/upload-release-asset@v1
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #       with:
+  #         upload_url: ${{ needs.create-release.outputs.upload_url }}
+  #         asset_path: ${{ env.MACOS_APP_RELEASE_PATH }}/${{ env.MACOS_DMG_NAME }}
+  #         asset_name: ${{ env.MACOS_DMG_NAME }}
+  #         asset_content_type: application/octet-stream
 
-  build-for-macOS-arm64:
-    name: ${{ matrix.job.target }} (${{ matrix.job.os }}) [${{ matrix.job.extra-build-args }}]
-    runs-on: ${{ matrix.job.os }}
-    needs: create-release
-    env:
-      MACOS_APP_RELEASE_PATH: frontend/appflowy_flutter/build/${{ github.ref_name }}
-      MACOS_AARCH64_ZIP_NAME: Incuboot-${{ github.ref_name }}-macos-arm64.zip
-      MACOS_DMG_NAME: Incuboot-${{ github.ref_name }}-macos-arm64.dmg
-    strategy:
-      fail-fast: false
-      matrix:
-        job:
-          - {
-              targets: "aarch64-apple-darwin",
-              os: macos-latest,
-              extra-build-args: "",
-            }
-    steps:
-      - name: Checkout source code
-        uses: actions/checkout@v4
+  # build-for-macOS-arm64:
+  #   name: ${{ matrix.job.target }} (${{ matrix.job.os }}) [${{ matrix.job.extra-build-args }}]
+  #   runs-on: ${{ matrix.job.os }}
+  #   needs: create-release
+  #   env:
+  #     MACOS_APP_RELEASE_PATH: frontend/appflowy_flutter/build/${{ github.ref_name }}
+  #     MACOS_AARCH64_ZIP_NAME: Incuboot-${{ github.ref_name }}-macos-arm64.zip
+  #     MACOS_DMG_NAME: Incuboot-${{ github.ref_name }}-macos-arm64.dmg
+  #   strategy:
+  #     fail-fast: false
+  #     matrix:
+  #       job:
+  #         - {
+  #             targets: "aarch64-apple-darwin",
+  #             os: macos-latest,
+  #             extra-build-args: "",
+  #           }
+  #   steps:
+  #     - name: Checkout source code
+  #       uses: actions/checkout@v4
 
-      - name: Install flutter
-        uses: subosito/flutter-action@v2
-        with:
-          channel: "stable"
-          flutter-version: ${{ env.FLUTTER_VERSION }}
+  #     - name: Install flutter
+  #       uses: subosito/flutter-action@v2
+  #       with:
+  #         channel: "stable"
+  #         flutter-version: ${{ env.FLUTTER_VERSION }}
 
-      - name: Install Rust toolchain
-        uses: dtolnay/rust-toolchain@stable
-        with:
-          toolchain: ${{ env.RUST_TOOLCHAIN }}
-          targets: ${{ matrix.job.targets }}
-          components: rustfmt
+  #     - name: Install Rust toolchain
+  #       uses: dtolnay/rust-toolchain@stable
+  #       with:
+  #         toolchain: ${{ env.RUST_TOOLCHAIN }}
+  #         targets: ${{ matrix.job.targets }}
+  #         components: rustfmt
 
-      - name: Install prerequisites
-        working-directory: frontend
-        run: |
-          brew install p7zip
-          cargo install --force --locked cargo-make
-          cargo install --force --locked duckscript_cli
+  #     - name: Install prerequisites
+  #       working-directory: frontend
+  #       run: |
+  #         brew install p7zip
+  #         cargo install --force --locked cargo-make
+  #         cargo install --force --locked duckscript_cli
 
-      # - name: Import codesign certificate
-      #   uses: apple-actions/import-codesign-certs@v3
-      #   with:
-      #     p12-file-base64: ${{ secrets.MACOS_CERTIFICATE }}
-      #     p12-password: ${{ secrets.MACOS_CERTIFICATE_PWD }}
+  #     # - name: Import codesign certificate
+  #     #   uses: apple-actions/import-codesign-certs@v3
+  #     #   with:
+  #     #     p12-file-base64: ${{ secrets.MACOS_CERTIFICATE }}
+  #     #     p12-password: ${{ secrets.MACOS_CERTIFICATE_PWD }}
 
-      - name: Build AppFlowy
-        working-directory: frontend
-        run: |
-          flutter config --enable-macos-desktop
-          dart pub global activate flutter_distributor
-          sh scripts/flutter_release_build/build_macos.sh --build_type dmg --build_arch arm64 --version ${{ github.ref_name }}
+  #     - name: Build AppFlowy
+  #       working-directory: frontend
+  #       run: |
+  #         flutter config --enable-macos-desktop
+  #         dart pub global activate flutter_distributor
+  #         sh scripts/flutter_release_build/build_macos.sh --build_type dmg --build_arch arm64 --version ${{ github.ref_name }}
 
-      - name: Upload Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ needs.create-release.outputs.upload_url }}
-          asset_path: ${{ env.MACOS_APP_RELEASE_PATH }}/${{ env.MACOS_AARCH64_ZIP_NAME }}
-          asset_name: ${{ env.MACOS_AARCH64_ZIP_NAME }}
-          asset_content_type: application/octet-stream
+  #     - name: Upload Asset
+  #       uses: actions/upload-release-asset@v1
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #       with:
+  #         upload_url: ${{ needs.create-release.outputs.upload_url }}
+  #         asset_path: ${{ env.MACOS_APP_RELEASE_PATH }}/${{ env.MACOS_AARCH64_ZIP_NAME }}
+  #         asset_name: ${{ env.MACOS_AARCH64_ZIP_NAME }}
+  #         asset_content_type: application/octet-stream
 
-      - name: Upload DMG Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ needs.create-release.outputs.upload_url }}
-          asset_path: ${{ env.MACOS_APP_RELEASE_PATH }}/${{ env.MACOS_DMG_NAME }}
-          asset_name: ${{ env.MACOS_DMG_NAME }}
-          asset_content_type: application/octet-stream
+  #     - name: Upload DMG Asset
+  #       uses: actions/upload-release-asset@v1
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #       with:
+  #         upload_url: ${{ needs.create-release.outputs.upload_url }}
+  #         asset_path: ${{ env.MACOS_APP_RELEASE_PATH }}/${{ env.MACOS_DMG_NAME }}
+  #         asset_name: ${{ env.MACOS_DMG_NAME }}
+  #         asset_content_type: application/octet-stream
