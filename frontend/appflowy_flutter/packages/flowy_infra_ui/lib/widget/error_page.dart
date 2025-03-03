@@ -79,7 +79,7 @@ class FlowyErrorPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const FlowyText.medium(
-            "AppFlowy Error",
+            "GNY Error",
             fontSize: _titleFontSize,
           ),
           const SizedBox(height: _titleToMessagePadding),
@@ -253,7 +253,7 @@ class GitHubRedirectButton extends StatelessWidget {
     return FlowyButton(
       leftIconSize: const Size.square(_height),
       text: const FlowyText(
-        "AppFlowy",
+        "GNY",
       ),
       useIntrinsicWidth: true,
       leftIcon: const Padding(

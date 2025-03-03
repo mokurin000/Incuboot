@@ -36,7 +36,7 @@ class DownloadModelBloc extends Bloc<DownloadModelEvent, DownloadModelState> {
           },
           onPluginPercentage: (percent) {
             if (!isClosed) {
-              add(DownloadModelEvent.updatePercent("AppFlowy Plugin", percent));
+              add(DownloadModelEvent.updatePercent("GNY Plugin", percent));
             }
           },
           onFinish: () {

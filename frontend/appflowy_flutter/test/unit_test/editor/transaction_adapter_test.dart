@@ -266,7 +266,7 @@ void main() {
 
             expect(textId, isNotEmpty);
             final delta = textAction.textDeltaPayloadPB?.delta;
-            expect(delta, equals('[{"insert":"AppFlowy"}]'));
+            expect(delta, equals('[{"insert":"GNY"}]'));
           }
 
           // check block operation
@@ -343,7 +343,7 @@ void main() {
               expect(
                 delta,
                 equals(
-                  '[{"insert":"Hello","attributes":{"bold":null}},{"insert":" AppFlowy","attributes":{"bold":true}}]',
+                  '[{"insert":"Hello","attributes":{"bold":null}},{"insert":" GNY","attributes":{"bold":true}}]',
                 ),
               );
             }

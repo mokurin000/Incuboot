@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 
 import 'package:local_notifier/local_notifier.dart';
 
-const _appName = "AppFlowy";
+const _appName = "GNY";
 
 /// Manages Local Notifications
 ///

@@ -55,8 +55,9 @@ void main() {
       tester.expectToSeeDocumentCover(CoverType.color);
 
       // Change cover to a network image
+      // ---TODO---: add logo & reupload
       const imageUrl =
-          "https://raw.githubusercontent.com/AppFlowy-IO/AppFlowy/main/frontend/appflowy_flutter/assets/images/appflowy_launch_splash.jpg";
+          "https://github-production-user-asset-6210df.s3.amazonaws.com/34085039/418442268-96ecaa11-c600-4040-8c26-c62824d55c01.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250303%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250303T055059Z&X-Amz-Expires=300&X-Amz-Signature=5f1fa5e9fafff7f466865c6ed87cd138330f46d18f16b0930c6ac2058e6acc4a&X-Amz-SignedHeaders=host";
       await tester.editor.hoverOnCover();
       await tester.editor.tapOnChangeCover();
       await tester.editor.addNetworkImageCover(imageUrl);

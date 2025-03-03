@@ -33,7 +33,7 @@ void main() {
             "insert": "Hello",
             "attributes": {"code": true},
           },
-          {"insert": " AppFlowy"},
+          {"insert": " GNY"},
         ]),
       );
     });
