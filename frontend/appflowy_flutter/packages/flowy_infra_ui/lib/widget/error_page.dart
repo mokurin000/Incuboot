@@ -79,7 +79,7 @@ class FlowyErrorPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const FlowyText.medium(
-            "GNY Error",
+            "Incuboot Error",
             fontSize: _titleFontSize,
           ),
           const SizedBox(height: _titleToMessagePadding),
@@ -218,7 +218,7 @@ class GitHubRedirectButton extends StatelessWidget {
   Uri get _gitHubNewBugUri => Uri(
         scheme: 'https',
         host: 'github.com',
-        path: '/AppFlowy-IO/AppFlowy/issues/new',
+        path: '/Incuboot-IO/Incuboot/issues/new',
         query:
             'assignees=&labels=&projects=&template=bug_report.yaml&os=$_platform&title=%5BBug%5D+$title&context=$_contextString',
       );
@@ -253,7 +253,7 @@ class GitHubRedirectButton extends StatelessWidget {
     return FlowyButton(
       leftIconSize: const Size.square(_height),
       text: const FlowyText(
-        "GNY",
+        "Incuboot",
       ),
       useIntrinsicWidth: true,
       leftIcon: const Padding(

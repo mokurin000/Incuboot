@@ -1,5 +1,5 @@
 {
-    "appName": "GNY",
+    "appName": "Incuboot",
     "defaultUsername": "Me",
     "welcomeText": "Benvenuto in @:appName",
     "welcomeTo": "Benvenuto a",
@@ -111,7 +111,7 @@
         "csv": "CSV",
         "copyLink": "Copia Link",
         "publishToTheWeb": "Pubblica sul Web",
-        "publishToTheWebHint": "Crea un sito con GNY",
+        "publishToTheWebHint": "Crea un sito con Incuboot",
         "publish": "Pubblica",
         "unPublish": "Annulla la pubblicazione",
         "visitSite": "Visita sito",

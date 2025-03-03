@@ -1,5 +1,5 @@
 {
-    "appName": "GNY",
+    "appName": "Incuboot",
     "defaultUsername": "Я",
     "welcomeText": "Добро пожаловать в @:appName",
     "welcomeTo": "Добро пожаловать в",
@@ -116,7 +116,7 @@
         "csv": "CSV",
         "copyLink": "Скопировать ссылку",
         "publishToTheWeb": "Опубликовать в интернете",
-        "publishToTheWebHint": "Создать веб-сайт с GNY",
+        "publishToTheWebHint": "Создать веб-сайт с Incuboot",
         "publish": "Опубликовать",
         "unPublish": "Отменить",
         "visitSite": "Посетить сайт",
@@ -2155,7 +2155,7 @@
         "reportPage": "Донести на страницу",
         "databaseHasNotBeenPublished": "Публикация базы данных пока не поддерживается.",
         "createdWith": "Создано с",
-        "downloadApp": "Скачать GNY",
+        "downloadApp": "Скачать Incuboot",
         "copy": {
             "codeBlock": "Содержимое блока кода скопировано в буфер обмена.",
             "imageBlock": "Ссылка на изображение скопирована в буфер обмена.",
@@ -2167,7 +2167,7 @@
         "publishFailed": "Не удалось опубликовать.",
         "unpublishFailed": "Не удалось отменить публикацию.",
         "noAccessToVisit": "Нет доступа к этой странице...",
-        "createWithAppFlowy": "Создать веб-сайт с GNY",
+        "createWithAppFlowy": "Создать веб-сайт с Incuboot",
         "fastWithAI": "Быстро и легко с ИИ.",
         "tryItNow": "Попробуй сейчас"
     },
@@ -2177,7 +2177,7 @@
         "continueWithGoogle": "Продолжить с Google",
         "continueWithGithub": "Продолжить с GitHub",
         "continueWithDiscord": "Продолжить с Discord",
-        "signInAgreement": "Нажимая «Продолжить» выше, вы подтверждаете, что\nвы прочитали, поняли и согласились с\nGNY",
+        "signInAgreement": "Нажимая «Продолжить» выше, вы подтверждаете, что\nвы прочитали, поняли и согласились с\nIncuboot",
         "and": "и",
         "termOfUse": "Условия",
         "privacyPolicy": "Политика конфиденциальности",

@@ -11,7 +11,7 @@ import 'package:path/path.dart' as p;
 
 import '../../../startup/tasks/prelude.dart';
 
-const appFlowyDataFolder = "GNYDataDoNotRename";
+const appFlowyDataFolder = "IncubootDataDoNotRename";
 
 class ApplicationDataStorage {
   ApplicationDataStorage();

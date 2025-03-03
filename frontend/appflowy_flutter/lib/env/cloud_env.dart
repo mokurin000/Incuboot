@@ -284,7 +284,7 @@ Future<AppFlowyCloudConfiguration> getAppFlowyCloudConfig(
       baseShareDomain,
     );
   } catch (e) {
-    Log.error("Failed to parse GNY Cloud URL: $e");
+    Log.error("Failed to parse Incuboot Cloud URL: $e");
     return AppFlowyCloudConfiguration.defaultConfig();
   }
 }

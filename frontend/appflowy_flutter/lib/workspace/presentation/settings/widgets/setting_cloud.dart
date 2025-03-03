@@ -246,6 +246,6 @@ String titleFromCloudType(AuthenticatorType cloudType) {
     case AuthenticatorType.appflowyCloudSelfHost:
       return LocaleKeys.settings_menu_cloudAppFlowySelfHost.tr();
     case AuthenticatorType.appflowyCloudDevelop:
-      return "GNYCloud Develop";
+      return "IncubootCloud Develop";
   }
 }

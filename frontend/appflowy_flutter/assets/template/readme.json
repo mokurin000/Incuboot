@@ -200,19 +200,7 @@
             {
               "type": "text",
               "attributes": { "subtype": "heading", "heading": "h2" },
-              "delta": [{ "insert": "Like GNY? Follow us:" }]
-            },
-            {
-              "type": "text",
-              "attributes": { "subtype": "bulleted-list" },
-              "delta": [
-                {
-                  "insert": "GitHub",
-                  "attributes": {
-                    "href": "https://github.com/AppFlowy-IO/AppFlowy"
-                  }
-                }
-              ]
+              "delta": [{ "insert": "Like Incuboot? Follow us:" }]
             },
             {
               "type": "text",
@@ -220,19 +208,9 @@
               "delta": [
                 {
                   "insert": "Twitter",
-                  "attributes": { "href": "https://twitter.com/appflowy" }
+                  "attributes": { "href": "https://twitter.com/incuboot" }
                 },
-                { "insert": ": @appflowy" }
-              ]
-            },
-            {
-              "type": "text",
-              "attributes": { "subtype": "bulleted-list" },
-              "delta": [
-                {
-                  "insert": "Newsletter",
-                  "attributes": { "href": "https://blog-appflowy.ghost.io/" }
-                }
+                { "insert": ": @incuboot" }
               ]
             }
           ],

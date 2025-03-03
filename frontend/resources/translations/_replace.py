@@ -7,8 +7,12 @@ def process(d: dict):
         if isinstance(v, dict):
             process(v)
         if isinstance(v, str):
-            while "AppFlowy" in v:
-                v = v.replace("AppFlowy", "GNY")
+            src = "GNY"
+            dst = "Incuboot"
+
+            while "GNY" in v:
+                v = v.replace(src, dst)
+
             d[k] = v
 
 

@@ -38,7 +38,7 @@ class AppFlowyUnitTest {
 
   Future<void> _signIn() async {
     final authService = getIt<AuthService>();
-    const password = "GNYpassw123@";
+    const password = "Incuboot123@";
     final uid = uuid();
     final userEmail = "$uid@appflowy.io";
     final result = await authService.signUp(

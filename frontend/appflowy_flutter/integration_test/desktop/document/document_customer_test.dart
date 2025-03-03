@@ -19,7 +19,7 @@ void main() {
       // focus on the editor
       await tester.tap(find.byType(AppFlowyEditor));
       // input backtick
-      const text = '`Hello` AppFlowy';
+      const text = '`Hello` Incuboot';
 
       for (var i = 0; i < text.length; i++) {
         await tester.ime.insertCharacter(text[i]);
@@ -33,7 +33,7 @@ void main() {
             "insert": "Hello",
             "attributes": {"code": true},
           },
-          {"insert": " GNY"},
+          {"insert": " Incuboot"},
         ]),
       );
     });

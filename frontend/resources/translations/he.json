@@ -1,5 +1,5 @@
 {
-    "appName": "GNY",
+    "appName": "Incuboot",
     "defaultUsername": "אני",
     "welcomeText": "ברוך בואך אל @:appName",
     "welcomeTo": "ברוך בואך אל",
@@ -827,7 +827,7 @@
             "customPathPrompt": "אחסון תיקיית הנתונים של @:appName בתיקייה שמסונכרנת עם הענן כגון Google Drive יכול להוות סיכון. אם למסד הנתונים בתיקייה הזאת ניגשים או עורכים ממגוון מקומות בו־זמנית, יכולות לקרות סתירות סנכרון והנתונים יכולים להינזק",
             "importAppFlowyData": "ייבוא נתונים מתיקיית @:appName חיצונית",
             "importingAppFlowyDataTip": "מתבצע ייבוא נתונים. נא לא לסגור את היישום",
-            "importAppFlowyDataDescription": "העתקת נתונים מתיקיית נתונים חיצונית של @:appName ולייבא אותה לתיקיית הנתונים הנוכחית של GNY",
+            "importAppFlowyDataDescription": "העתקת נתונים מתיקיית נתונים חיצונית של @:appName ולייבא אותה לתיקיית הנתונים הנוכחית של Incuboot",
             "importSuccess": "תיקיית הנתונים של @:appName יובאה בהצלחה",
             "importFailed": "ייבוא תיקיית הנתונים של @:appName נכשל",
             "importGuide": "לפרטים נוספים, נא לעיין במסמך המוזכר"
@@ -2052,7 +2052,7 @@
         "reportPage": "דיווח על עמוד",
         "databaseHasNotBeenPublished": "עדיין אין תמיכה בפרסום למסדי נתונים.",
         "createdWith": "נוצר עם",
-        "downloadApp": "הורדת GNY",
+        "downloadApp": "הורדת Incuboot",
         "copy": {
             "codeBlock": "תוכן מקטע הקוד הועתק ללוח הגזירים",
             "imageBlock": "קישור התמונה הועתק ללוח הגזירים",
@@ -2064,7 +2064,7 @@
         "publishFailed": "הפרסום נכשל",
         "unpublishFailed": "ההסתרה נכשלה",
         "noAccessToVisit": "אין גישה לעמוד הזה…",
-        "createWithAppFlowy": "יצירת אתר עם GNY",
+        "createWithAppFlowy": "יצירת אתר עם Incuboot",
         "fastWithAI": "מהיר וקל עם בינה מלאכותית.",
         "tryItNow": "לנסות כעת"
     },
@@ -2074,7 +2074,7 @@
         "continueWithGoogle": "להמשיך עם Google",
         "continueWithGithub": "להמשיך עם GitHub",
         "continueWithDiscord": "להמשיך עם Discord",
-        "signInAgreement": "לחיצה על „המשך” להלן, מהווה את אישורך\nלכך שקראת, הבנת והסכמת לתנאים של GNY",
+        "signInAgreement": "לחיצה על „המשך” להלן, מהווה את אישורך\nלכך שקראת, הבנת והסכמת לתנאים של Incuboot",
         "and": "וגם",
         "termOfUse": "תנאים",
         "privacyPolicy": "מדיניות פרטיות",

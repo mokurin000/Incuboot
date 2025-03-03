@@ -28,7 +28,7 @@ static void my_application_activate(GApplication *application)
 
   GtkWindow *window =
       GTK_WINDOW(gtk_application_window_new(GTK_APPLICATION(application)));
-  gtk_window_set_title(window, "GNY");
+  gtk_window_set_title(window, "Incuboot");
 
   gtk_window_set_default_size(window, 1280, 720);
   gtk_widget_show(GTK_WIDGET(window));
