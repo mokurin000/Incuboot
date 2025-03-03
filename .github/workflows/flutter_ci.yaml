@@ -1,27 +1,26 @@
 name: Flutter-CI
 
 on:
-  push:
-    branches:
-      - "main"
-      - "release/*"
-    paths:
-      - ".github/workflows/flutter_ci.yaml"
-      - ".github/actions/flutter_build/**"
-      - "frontend/rust-lib/**"
-      - "frontend/appflowy_flutter/**"
-      - "frontend/resources/**"
-
-  pull_request:
-    branches:
-      - "main"
-      - "release/*"
-    paths:
-      - ".github/workflows/flutter_ci.yaml"
-      - ".github/actions/flutter_build/**"
-      - "frontend/rust-lib/**"
-      - "frontend/appflowy_flutter/**"
-      - "frontend/resources/**"
+  # push:
+  #   branches:
+  #     - "main"
+  #     - "release/*"
+  #   paths:
+  #     - ".github/workflows/flutter_ci.yaml"
+  #     - ".github/actions/flutter_build/**"
+  #     - "frontend/rust-lib/**"
+  #     - "frontend/appflowy_flutter/**"
+  #     - "frontend/resources/**"
+  # pull_request:
+  #   branches:
+  #     - "main"
+  #     - "release/*"
+  #   paths:
+  #     - ".github/workflows/flutter_ci.yaml"
+  #     - ".github/actions/flutter_build/**"
+  #     - "frontend/rust-lib/**"
+  #     - "frontend/appflowy_flutter/**"
+  #     - "frontend/resources/**"
 
 env:
   CARGO_TERM_COLOR: always
