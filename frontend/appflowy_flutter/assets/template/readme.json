@@ -6,7 +6,7 @@
         {
           "type": "text",
           "attributes": { "subtype": "heading", "heading": "h1" },
-          "delta": [{ "insert": "Welcome to GNY!" }]
+          "delta": [{ "insert": "Welcome to Incuboot!" }]
         },
         {
           "type": "text",
