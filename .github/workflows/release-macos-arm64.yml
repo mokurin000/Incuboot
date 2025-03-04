@@ -1,4 +1,4 @@
-name: release
+name: release-macos-arm64
 
 on:
   workflow_dispatch:
