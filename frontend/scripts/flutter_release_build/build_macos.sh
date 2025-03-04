@@ -270,7 +270,7 @@ build_tar_xz() {
     fi
 
     # step 3: build the tar.xz package
-    tar -cJvf appflowy_flutter/build/$VERSION/Incuboot-$VERSION-macos-$BUILD_ARCH.tar.xz (ls appflowy_flutter/build/$VERSION/*.app 2> /dev/null || echo)
+    tar -cJvf appflowy_flutter/build/$VERSION/Incuboot-$VERSION-macos-$BUILD_ARCH.tar.xz $(ls appflowy_flutter/build/$VERSION/*.app 2> /dev/null || echo)
     info "Tar.xz package built successfully. The tar.xz package is located at appflowy_flutter/build/$VERSION/Incuboot-$VERSION-macos-$BUILD_ARCH.tar.xz"
 }
 
