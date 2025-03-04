@@ -28,7 +28,7 @@ class SignInAgreement extends StatelessWidget {
             ),
             mouseCursor: SystemMouseCursors.click,
             recognizer: TapGestureRecognizer()
-              ..onTap = () => afLaunchUrlString('https://appflowy.io/terms'),
+              ..onTap = () => afLaunchUrlString('https://incuboot.com/terms'),
           ),
           TextSpan(
             text: '${LocaleKeys.web_and.tr()} ',
@@ -43,7 +43,7 @@ class SignInAgreement extends StatelessWidget {
             ),
             mouseCursor: SystemMouseCursors.click,
             recognizer: TapGestureRecognizer()
-              ..onTap = () => afLaunchUrlString('https://appflowy.io/privacy'),
+              ..onTap = () => afLaunchUrlString('https://incuboot.com/privacy'),
           ),
         ],
       ),

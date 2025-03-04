@@ -157,7 +157,7 @@ pub trait UserCloudService: Send + Sync + 'static {
   /// After the user is authenticated, the browser will open a deep link to the AppFlowy app (iOS, macOS, etc.),
   /// which will call [Client::sign_in_with_url]generate_sign_in_url_with_email to sign in.
   ///
-  /// For example, the OAuth URL on Google looks like `https://appflowy.io/authorize?provider=google`.
+  /// For example, the OAuth URL on Google looks like `https://incuboot.com/authorize?provider=google`.
   async fn generate_oauth_url_with_provider(&self, provider: &str) -> Result<String, FlowyError>;
 
   /// Using the user's token to update the user information

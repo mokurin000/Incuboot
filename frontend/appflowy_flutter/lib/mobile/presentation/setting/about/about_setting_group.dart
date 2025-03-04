@@ -25,14 +25,14 @@ class AboutSettingGroup extends StatelessWidget {
           trailing: const Icon(
             Icons.chevron_right,
           ),
-          onTap: () => afLaunchUrlString('https://appflowy.io/privacy'),
+          onTap: () => afLaunchUrlString('https://incuboot.com/privacy'),
         ),
         MobileSettingItem(
           name: LocaleKeys.settings_mobile_termsAndConditions.tr(),
           trailing: const Icon(
             Icons.chevron_right,
           ),
-          onTap: () => afLaunchUrlString('https://appflowy.io/terms'),
+          onTap: () => afLaunchUrlString('https://incuboot.com/terms'),
         ),
         if (kDebugMode)
           MobileSettingItem(
