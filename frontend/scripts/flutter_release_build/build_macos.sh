@@ -194,10 +194,10 @@ build_zip() {
 
     # step 3: codesign the app
     # note: You must install the certificate to the system before codesigning
-    # sudo /usr/bin/codesign --force --options runtime --deep --sign "Developer ID Application: APPFLOWY PTE. LTD" --deep --verbose AppFlowy.app -v
+    # sudo /usr/bin/codesign --force --options runtime --deep --sign "Developer ID Application: APPFLOWY PTE. LTD" --deep --verbose Incuboot.app -v
 
     # step 4: zip the app again
-    7z a appflowy_flutter/build/$VERSION/Incuboot-$VERSION-macos-$BUILD_ARCH.zip AppFlowy.app
+    7z a appflowy_flutter/build/$VERSION/Incuboot-$VERSION-macos-$BUILD_ARCH.zip Incuboot.app
 
     info "Zip package built successfully"
 }
@@ -215,9 +215,9 @@ build_dmg() {
     unzip appflowy_flutter/build/$VERSION/Incuboot-$VERSION-macos-$BUILD_ARCH.zip -d appflowy_flutter/build/$VERSION/
     cp appflowy_flutter/macos/packaging/dmg/make_config.json appflowy_flutter/build/$VERSION/
 
-    # check if the AppFlowy.app doesn't exist, exit the script
-    if [ ! -d "appflowy_flutter/build/$VERSION/AppFlowy.app" ]; then
-        error "AppFlowy.app doesn't exist. Please check the zip package."
+    # check if the Incuboot.app doesn't exist, exit the script
+    if [ ! -d "appflowy_flutter/build/$VERSION/Incuboot.app" ]; then
+        error "Incuboot.app doesn't exist. Please check the zip package."
     fi
 
     # check if the appdmg has been installed
@@ -231,7 +231,7 @@ build_dmg() {
     appdmg appflowy_flutter/build/$VERSION/make_config.json appflowy_flutter/build/$VERSION/Incuboot-$VERSION-macos-$BUILD_ARCH.dmg
 
     # step 4: clear the temp files
-    rm -rf appflowy_flutter/build/$VERSION/AppFlowy.app
+    rm -rf appflowy_flutter/build/$VERSION/Incuboot.app
     rm -rf appflowy_flutter/build/$VERSION/make_config.json
 
     # check if the dmg package is built
@@ -263,9 +263,9 @@ build_tar_xz() {
     # step 2: unzip the zip package and copy the make_config.json file to the build directory
     unzip appflowy_flutter/build/$VERSION/Incuboot-$VERSION-macos-$BUILD_ARCH.zip -d appflowy_flutter/build/$VERSION/
 
-    # check if the AppFlowy.app doesn't exist, exit the script
-    if [ ! -d "appflowy_flutter/build/$VERSION/AppFlowy.app" ]; then
-        error "AppFlowy.app doesn't exist. Please check the zip package."
+    # check if the Incuboot.app doesn't exist, exit the script
+    if [ ! -d "appflowy_flutter/build/$VERSION/Incuboot.app" ]; then
+        error "Incuboot.app doesn't exist. Please check the zip package."
     fi
 
     # step 3: build the tar.xz package
