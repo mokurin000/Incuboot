@@ -54,6 +54,9 @@ jobs:
       #     p12-file-base64: ${{ secrets.MACOS_CERTIFICATE }}
       #     p12-password: ${{ secrets.MACOS_CERTIFICATE_PWD }}
 
+      # - name: Setup upterm session
+      #   uses: lhotari/action-upterm@v1
+
       - name: Build AppFlowy
         working-directory: frontend
         run: |

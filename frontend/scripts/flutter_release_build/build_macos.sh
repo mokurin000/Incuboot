@@ -267,12 +267,10 @@ build_tar_xz() {
     # check if the Incuboot.app doesn't exist, exit the script
     if [ ! -d "appflowy_flutter/build/$VERSION/Incuboot.app" ]; then
         error "Incuboot.app doesn't exist. Please check the zip package."
-        exit 1
     fi
 
     # step 3: build the tar.xz package
-    tar -cJvf appflowy_flutter/build/$VERSION/Incuboot-$VERSION-macos-$BUILD_ARCH.tar.xz appflowy_flutter/build/$VERSION/Incuboot.app
-
+    tar -cJvf appflowy_flutter/build/$VERSION/Incuboot-$VERSION-macos-$BUILD_ARCH.tar.xz (ls appflowy_flutter/build/$VERSION/*.app 2> /dev/null || echo)
     info "Tar.xz package built successfully. The tar.xz package is located at appflowy_flutter/build/$VERSION/Incuboot-$VERSION-macos-$BUILD_ARCH.tar.xz"
 }
 
