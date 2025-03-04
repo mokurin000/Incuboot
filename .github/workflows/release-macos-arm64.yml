@@ -74,12 +74,15 @@ jobs:
           asset_name: ${{ env.MACOS_AARCH64_ZIP_NAME }}
           asset_content_type: application/octet-stream
 
-      - name: Upload DMG Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/upload-artifact@v4
         with:
-          upload_url: ${{ needs.create-release.outputs.upload_url }}
-          asset_path: ${{ env.MACOS_APP_RELEASE_PATH }}/${{ env.MACOS_DMG_NAME }}
-          asset_name: ${{ env.MACOS_DMG_NAME }}
-          asset_content_type: application/octet-stream
+          name: ${{ env.MACOS_APP_RELEASE_PATH }}/${{ env.MACOS_DMG_NAME }}
+          path: ${{ env.MACOS_DMG_NAME }}
+
+      - name: Upload DMG Asset
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ env.MACOS_APP_RELEASE_PATH }}/${{ env.MACOS_DMG_NAME }}
+          tag_name: ${{ github.ref_name }}
+          prerelease: false
+          make_latest: true
