@@ -64,20 +64,14 @@ jobs:
           dart pub global activate flutter_distributor
           sh scripts/flutter_release_build/build_macos.sh --build_type dmg --build_arch arm64 --version ${{ github.ref_name }}
 
-      - name: Upload Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ needs.create-release.outputs.upload_url }}
-          asset_path: ${{ env.MACOS_APP_RELEASE_PATH }}/${{ env.MACOS_AARCH64_ZIP_NAME }}
-          asset_name: ${{ env.MACOS_AARCH64_ZIP_NAME }}
-          asset_content_type: application/octet-stream
-
       - uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.MACOS_APP_RELEASE_PATH }}/${{ env.MACOS_DMG_NAME }}
-          path: ${{ env.MACOS_DMG_NAME }}
+          name: ${{ env.MACOS_AARCH64_ZIP_NAME }}
+          path: ${{ env.MACOS_APP_RELEASE_PATH }}/${{ env.MACOS_AARCH64_ZIP_NAME }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.MACOS_DMG_NAME }}
+          path: ${{ env.MACOS_APP_RELEASE_PATH }}/${{ env.MACOS_DMG_NAME }}
 
       - name: Upload DMG Asset
         uses: softprops/action-gh-release@v2
