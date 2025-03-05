@@ -53,6 +53,8 @@
 		<string>MainMenu</string>
 		<key>NSPrincipalClass</key>
 		<string>NSApplication</string>
+		<key>com.apple.security.cs.disable-library-validation</key>
+		<true/>
 		<key>SUPublicEDKey</key>
 		<string>Bs++IOmOwYmNTjMMC2jMqLNldP+mndDp/LwujCg2/kw=</string>
 		<key>SUAllowsAutomaticUpdates</key>
