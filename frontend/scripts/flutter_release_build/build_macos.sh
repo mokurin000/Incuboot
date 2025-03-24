@@ -186,7 +186,7 @@ build_zip() {
         prepare_build
 
         # step 1.1: move the zip package to the build directory
-        mv appflowy_flutter/build/$VERSION/appflowy-$VERSION+$VERSION-macos.zip appflowy_flutter/build/$VERSION/Incuboot-$VERSION-macos-$BUILD_ARCH.zip
+        mv appflowy_flutter/build/$VERSION/appflowy-$VERSION-macos.zip appflowy_flutter/build/$VERSION/Incuboot-$VERSION-macos-$BUILD_ARCH.zip
     fi
 
     # step 2: unzip the zip package and codesign the app
