@@ -455,8 +455,8 @@ Future<bool> isBillingEnabled() async {
   return result.fold(
     (cloudSetting) {
       final whiteList = [
-        "https://beta.appflowy.cloud",
-        "https://test.appflowy.cloud",
+        "http://cloud.incuboot.ai",
+        "http://cloud.incuboot.ai",
       ];
       if (kDebugMode) {
         whiteList.add("http://localhost:8000");
