@@ -38,7 +38,7 @@ Future<void> _setAuthenticatorType(AuthenticatorType ty) async {
   }
 }
 
-const String kAppflowyCloudUrl = "https://beta.appflowy.cloud";
+const String kAppflowyCloudUrl = "http://cloud.incuboot.ai";
 
 /// Retrieves the currently set cloud type.
 ///
